@@ -1,15 +1,12 @@
 import React from 'react';
+import { Home } from './pages/Home';
 import firebase from "./services/firebase";
 
 
 function App() {
   console.log(firebase)
   return (
-    <div className="App">
-      <header className="App-header">
-
-      </header>
-    </div>
+   <Home/>
   );
 }
 
