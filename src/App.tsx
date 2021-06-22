@@ -2,7 +2,7 @@ import React from 'react';
 
 import { BrowserRouter, Route}from "react-router-dom"
 
-import firebase from "./services/firebase";
+import {firebase} from "./services/firebase";
 
 import { Home } from './pages/Home';
 import NewRoom from './pages/NewRoom';
