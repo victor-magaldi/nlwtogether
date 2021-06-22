@@ -1,5 +1,6 @@
 import React from 'react';
-import { Home } from './pages/Home';
+// import { Home } from './pages/Home';
+import NewRoom from './pages/NewRoom';
 import firebase from "./services/firebase";
 
 import "./styles/global.scss"
@@ -8,7 +9,7 @@ import "./styles/global.scss"
 function App() {
   console.log(firebase)
   return (
-   <Home/>
+   <NewRoom/>
   );
 }
 
