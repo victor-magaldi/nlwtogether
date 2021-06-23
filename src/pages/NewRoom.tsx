@@ -8,11 +8,11 @@ import illustration from "../assets/images/illustration.svg";
 
 import "../styles/auth.scss";
 import Button from "../components/Button";
-import { AuthContext } from '../App';
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function NewRoom() {
     const {user} = useContext(AuthContext)
-    
+      console.log(user)
     return (
  <div id="page-auth">
       <aside>
@@ -24,7 +24,6 @@ export default function NewRoom() {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="logo" />
-            <h1>{user?.name}</h1>
             <h2>Criar uma nova sala</h2>
           <div className="separator">ou entre em uma sala</div>
           <form>
