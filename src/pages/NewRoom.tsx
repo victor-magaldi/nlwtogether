@@ -1,6 +1,6 @@
 import React, { FormEvent } from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import logoImg from "../assets/images/logo.svg";
 import illustration from "../assets/images/illustration.svg";
@@ -13,6 +13,7 @@ import { database } from '../services/firebase';
 
 export default function NewRoom() {
   const { user } = useAuth()
+  const history = useHistory()
   const [newRoom, setNewRoom] = useState("")
 
 
@@ -30,6 +31,7 @@ export default function NewRoom() {
 
     })
     console.log(firebaseRoom)
+    history.push(`/rooms/${firebaseRoom.key}`)
   }
   return (
     <div id="page-auth">
