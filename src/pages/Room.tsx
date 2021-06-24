@@ -45,7 +45,7 @@ export default function Room() {
         const roomRef = database.ref(`rooms/${roomId}`)
 
 
-        roomRef.once("value", room => {
+        roomRef.on("value", room => {
             const dataBaseQuestions = room.val()
             const firebaseQuestions: FirebaseQuestions = dataBaseQuestions.questions ?? {}
             const parsetQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
