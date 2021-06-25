@@ -3,13 +3,15 @@ import React, {} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import logoImg from "../assets/images/logo.svg";
 import deleteImg from "../assets/images/delete.svg"
+import checkImg from "../assets/images/check.svg"
+import answerImg from "../assets/images/answer.svg"
+
 import "../styles/room.scss";
 
 import Button from "../components/Button";
 import RoomCode from "../components/RoomCode";
 import Question from "../components/Question";
-// import { useAuth } from "../hooks/useAuth";
-// import { database } from "../services/firebase";
+
 import { useRoom } from "../hooks/useRoom";
 import { database } from "../services/firebase";
 
@@ -35,6 +37,17 @@ export default function AdminRoom() {
           endedAt: new Date()
       })
       history.push("/")
+  }
+  async function handleCheckAsAnswered(questionId:string){
+      await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+          isAnswered:true
+      })
+
+  }
+  async function handleHilightQuestion(questionId:string){
+    await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+          isHighlighted:true
+      })
   }
 
   return (
@@ -65,9 +78,17 @@ export default function AdminRoom() {
                   key={question.id}
                   content={question.content}
                   author={question.author}
+                  isAnswered={question.isAnswered}
+                  isHighlighted={question.isHighlighted}
                 >
+                    <button type="button" onClick={(e)=>{handleCheckAsAnswered(question.id)}}>
+                        <img src={checkImg} alt="" />
+                    </button>
+                                      <button type="button" onClick={(e)=>{handleHilightQuestion(question.id)}}>
+                        <img src={answerImg} alt="repondida" />
+                    </button>
                     <button type="button" onClick={(e)=>{handleDelete(question.id)}}>
-                        <img src={deleteImg} alt="" />
+                        <img src={deleteImg} alt="deletar " />
                     </button>
                 </Question>
               );

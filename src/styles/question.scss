@@ -4,6 +4,21 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
+  &.isHighlighted {
+    background: #f4f0ff;
+    border: solid 1px #835afd;
+
+    footer span {
+      color: black;
+    }
+  }
+
+  &.isAnswered {
+    background: #c4c4c4;
+    border: none;
+    opacity: 0.8;
+  }
+
   & + .question {
     margin-top: 8px;
   }
@@ -29,6 +44,10 @@
         color: #737380;
         font-size: 14px;
       }
+    }
+    > div {
+      display: flex;
+      gap: 16px;
     }
   }
   button {

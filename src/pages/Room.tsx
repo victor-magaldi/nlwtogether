@@ -82,6 +82,7 @@ export default function Room() {
             placeholder="O que você quer perguntar?"
             onChange={event => setNewQuestion(event.target.value)}
             value={newQuestion}
+            
           />
 
           <div className="form-footer">
@@ -104,8 +105,8 @@ export default function Room() {
                 key={question.id}
                 content={question.content}
                 author={question.author}
-                // isAnswered={question.isAnswered}
-                // isHighlighted={question.isHighlighted}
+                isAnswered={question.isAnswered}
+                isHighlighted={question.isHighlighted}
               >
                 {!question.isAnswered && (
                   <button
